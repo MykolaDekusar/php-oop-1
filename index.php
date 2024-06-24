@@ -22,16 +22,20 @@ class Movie
     // function to get movie info
     public function getFilm(): string
     {
+        // converting array to string
         $genreString = implode(', ', $this->genre);
+        // getting correct info
         return "Title:$this->title <br>Genre:$genreString <br>Year:$this->year <hr>";
     }
 }
-
 try {
+    // assigning movies to Movie
     $movie1 = new Movie('Avengers', ['Action', 'Suspence'], 2014);
     $movie2 = new Movie('Matrix', ['Action'], 1998);
+    // printing data
     echo $movie1->getFilm();
     echo $movie2->getFilm();
+    // catching error
 } catch (Exception $e) {
     echo 'Error => ', $e->getMessage();
 }
