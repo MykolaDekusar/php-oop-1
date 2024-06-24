@@ -4,10 +4,10 @@ class Movie
 {
     // setting private info of class
     private string $title;
-    private string $genre;
+    private array $genre;
     private int $year;
     // constructor function 
-    public function __construct(string $title, string $genre, int $year)
+    public function __construct(string $title, array $genre, int $year)
     {
         // handle of empty info
         if (empty($title) || empty($genre)) {
@@ -22,15 +22,15 @@ class Movie
     // function to get movie info
     public function getFilm(): string
     {
-        return "$this->title $this->genre $this->year";
+        $genreString = implode(', ', $this->genre);
+        return "Title:$this->title <br>Genre:$genreString <br>Year:$this->year <hr>";
     }
 }
 
 try {
-    $movie1 = new Movie('Avengers', 'Action', 2014);
-    $movie2 = new Movie('Matrix', 'Action', 1998);
+    $movie1 = new Movie('Avengers', ['Action', 'Suspence'], 2014);
+    $movie2 = new Movie('Matrix', ['Action'], 1998);
     echo $movie1->getFilm();
-    echo "<br>";
     echo $movie2->getFilm();
 } catch (Exception $e) {
     echo 'Error => ', $e->getMessage();
