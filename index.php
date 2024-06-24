@@ -11,7 +11,7 @@ class Movie
     {
         // handle of empty info
         if (empty($title) || empty($genre)) {
-            throw new Exception("Fill all camps");
+            throw new Exception("Ooops maybe you forgot to insert a title or a genre?");
         } else {
             // assigning values
             $this->title = $title;
@@ -26,8 +26,12 @@ class Movie
     }
 }
 
-$movie1 = new Movie('Avengers', 'Action', 2014);
-$movie2 = new Movie('Matrix', 'Action', 1998);
-echo $movie1->getFilm();
-echo "<br>";
-echo $movie2->getFilm();
+try {
+    $movie1 = new Movie('Avengers', 'Action', 2014);
+    $movie2 = new Movie('Matrix', 'Action', 1998);
+    echo $movie1->getFilm();
+    echo "<br>";
+    echo $movie2->getFilm();
+} catch (Exception $e) {
+    echo 'Error => ', $e->getMessage();
+}
