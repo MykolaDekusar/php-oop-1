@@ -7,7 +7,7 @@ $data = [
         'year' => 2014
     ],
     'movie2' => [
-        'title' => 'Matrix ',
+        'title' => 'Matrix',
         'genre' => ['Action', 'Sci-Fi'],
         'year' => 1998
     ]

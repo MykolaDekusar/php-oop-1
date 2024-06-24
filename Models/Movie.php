@@ -25,6 +25,6 @@ class Movie
         // converting array to string
         $genreString = implode(', ', $this->genre);
         // getting correct info
-        return "Title:$this->title <br>Genre:$genreString <br>Year:$this->year <hr>";
+        return "<h2>Title: $this->title</h2> <br>Genre: $genreString <br>Year: $this->year";
     }
 }
