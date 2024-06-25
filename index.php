@@ -8,13 +8,15 @@ try {
     // cycling in data
     foreach ($data as $movieData) {
         // creating new movie objects and assigning data to movies array
-        $movies[] = new Movie($movieData['title'], $movieData['genre'], $movieData['year']);
-        // var_dump($movieData);
+        $movies[] = new Movie($movieData['title'], $movieData['genre'], $movieData['year'], $movieData['actors'] ?? ['Undefined']);
+        var_dump($movies);
     }
     // catching error
 } catch (Exception $e) {
     echo 'Error => ', $e->getMessage();
 }
+$movies[0]->setGenre('Commedy'); ?>
+
 ?>
 <!-- HTML -->
 <!DOCTYPE html>
@@ -34,7 +36,7 @@ try {
         <ul>
             <!-- printing each movie from newly created movies array -->
             <?php foreach ($movies as $movie) : ?>
-                <li><?php echo $movie->getFilm() ?></li>
+                <li><?php echo $movie->getFilm(); ?></li>
             <?php endforeach ?>
         </ul>
     </div>
