@@ -3,6 +3,8 @@
 class Movie
 {
     // setting private info of class
+    private static int $id = 0;
+    private int $filmId;
     private string $title;
     private array $genre;
     private int $year;
@@ -14,6 +16,7 @@ class Movie
             throw new Exception("Ooops maybe you forgot to insert a title or a genre?");
         } else {
             // assigning values
+            $this->filmId = self::$id++;
             $this->title = $title;
             $this->genre = $genre;
             $this->year = $year;
@@ -25,6 +28,6 @@ class Movie
         // converting array to string
         $genreString = implode(', ', $this->genre);
         // getting correct info
-        return "<h2>Title: $this->title</h2> <br>Genre: $genreString <br>Year: $this->year";
+        return "ID: $this->filmId <h2>Title: $this->title</h2> <br>Genre: $genreString <br>Year: $this->year";
     }
 }
